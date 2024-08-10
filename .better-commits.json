@@ -85,8 +85,8 @@
         ]
     },
     "commit_scope": {
-        "enable": false,
-        "custom_scope": false,
+        "enable": true,
+        "custom_scope": true,
         "max_items": 20,
         "initial_value": "app",
         "options": [
@@ -95,16 +95,12 @@
                 "label": "app"
             },
             {
-                "value": "shared",
-                "label": "shared"
+                "value": "landing",
+                "label": "landing"
             },
             {
                 "value": "server",
                 "label": "server"
-            },
-            {
-                "value": "tools",
-                "label": "tools"
             },
             {
                 "value": "",
