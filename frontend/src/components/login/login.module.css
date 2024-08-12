@@ -1,15 +1,19 @@
 .login--container {
-  background: #5f6778;
+  /* background: #5f6778; */
 
   height: 100vh;
   justify-content: center;
   align-content: center;
 }
 
+.login--container h1 {
+  font-size: 1.8rem;
+}
+
 .card--container {
   margin: auto;
   max-width: 50%;
-  height: 60%;
+  height: 70%;
 
   background-color: #f3eeee;
   border-radius: 40px;
@@ -20,12 +24,12 @@
 }
 
 .card--container:before {
-  border-top: 70px solid #5f6778;
+  border-top: 70px solid #181820;
   border-right: 70px solid transparent;
 }
 
 .card--container:before,
-.right--container:before {
+.left--container:before {
   content: '';
   position: absolute;
   top: 0;
@@ -34,21 +38,23 @@
   width: 0;
 }
 
-.right--container {
-  width: 50%;
-  height: 100%;
-  background-color: #dbe0e9;
-  border-radius: 20px;
-  border-top-left-radius: 95px;
-  position: relative;
-}
-
 .left--container {
   width: 50%;
   height: 100%;
+  background-color: #d0d0e4;
+  border-radius: 20px;
+  border-top-left-radius: 95px;
+  position: relative;
+  padding-top: 10%;
 }
 
-.right--container::before {
+.right--container {
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+}
+
+.left--container::before {
   border-top: 75px solid #f3eeee;
   border-right: 75px solid transparent;
 }
@@ -56,11 +62,192 @@
 .right--container,
 .left--container {
   display: flex;
-  justify-content: center;
-  align-content: center;
+  /* justify-content: center; */
+  /* align-items: center; */
 
   flex-direction: column;
   gap: 1.2rem;
 
-  padding-inline: 2.4rem;
+  padding-inline: 1.2rem;
+}
+
+.form--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form--field__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.error--message {
+  color: rgb(231, 59, 59);
+  font-size: 0.8rem;
+}
+
+.input--container {
+  width: 100%;
+  background-color: #f3eeee;
+  border-radius: 8px;
+  outline: none;
+
+  padding: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.password--toggle__btn {
+  width: 20px;
+  height: 20px;
+
+  position: absolute;
+  right: 30px;
+
+  cursor: pointer;
+}
+
+.passward--container {
+  display: flex;
+  align-items: center;
+}
+
+.form--btn.btn-flip,
+.form--btn {
+  background-color: #2a2a38;
+  min-width: 100px;
+  /* padding-inline: 0.4rem; */
+  height: 40px;
+
+  position: absolute;
+  bottom: 15%;
+  margin: auto;
+
+  border-radius: 12px;
+}
+
+.form--btn p {
+  font-size: 0.8rem;
+}
+
+.fake--btn svg {
+  border-radius: 12px;
+  height: 40px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.fake--btn rect {
+  fill: none;
+  stroke: #2a2a38;
+  stroke-width: 2;
+  stroke-dasharray: 422, 0;
+  transition: all 0.35s linear;
+}
+
+.fake--btn:hover {
+  background: rgba(225, 51, 45, 0);
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.fake--btn:hover rect {
+  stroke-width: 5;
+  stroke-dasharray: 15, 310;
+  stroke-dashoffset: 48;
+  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* *SUBMIT BUTTON ANIMATION */
+/* Keyframes for fade in and fade out */
+/* Keyframes for fade and slide out */
+@keyframes fadeSlideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px); /* Adjust the value as needed */
+  }
+}
+
+/* Keyframes for fade and slide in */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Adjust the value as needed */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide up and fade out class */
+.fade-out {
+  animation: fadeSlideOut 2s forwards;
+}
+
+/* Slide in and fade in class */
+.fade-in {
+  animation: fadeSlideIn 2s forwards;
+}
+
+.btn-flip {
+  opacity: 1;
+  outline: 0;
+  color: #f3eeee;
+  line-height: 40px;
+  position: relative;
+
+  font-weight: bold;
+  text-align: center;
+  font-size: 0.8rem;
+  border-radius: 12px;
+
+  /* letter-spacing: 1px;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase; */
+}
+.btn-flip:hover:after {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+.btn-flip:hover:before {
+  opacity: 0;
+  transform: translateY(50%) rotateX(90deg);
+}
+.btn-flip:after {
+  border-radius: 12px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  color: #2a2a38;
+  display: block;
+  transition: 0.5s;
+  position: absolute;
+  background: #f3eeee;
+  content: attr(data-back);
+  transform: translateY(-50%) rotateX(90deg);
+}
+.btn-flip:before {
+  border-radius: 12px;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  color: #f3eeee;
+  display: block;
+  padding: 0 30px;
+  line-height: 40px;
+  transition: 0.5s;
+  position: relative;
+  background: #2a2a38;
+  content: attr(data-front);
+  transform: translateY(0) rotateX(0);
 }

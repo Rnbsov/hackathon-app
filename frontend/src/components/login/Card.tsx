@@ -26,9 +26,9 @@ type Props = {}
 
 export default function Card({}: Props) {
   return (
-    <section className={`${styles['card--container']} p-10`}>
-      <RightContainer />
+    <section className={`${styles['card--container']} p-10  bg-bgsecondary`}>
       <LeftContainer />
+      <RightContainer />
     </section>
   )
 }

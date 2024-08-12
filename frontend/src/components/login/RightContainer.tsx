@@ -7,8 +7,11 @@ type Props = {}
 export default function RightContainer({}: Props) {
   return (
     <div className={styles['right--container']}>
-      <h1 className='text-3xl text-center font-semibold'>Hi Coder</h1>
-      <p className='text-center'>Welcome to something functionally dysfunctional</p>
+      <h1 className='text-center font-semibold'>Hi Coder</h1>
+      <div>
+        <p className='text-center text-sm'>Welcome to something functional</p>
+        <p className='text-center text-sm'>and dysfunctional 🎉</p>
+      </div>
     </div>
   )
 }
