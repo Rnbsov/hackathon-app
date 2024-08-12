@@ -1,0 +1,66 @@
+.login--container {
+  background: #5f6778;
+
+  height: 100vh;
+  justify-content: center;
+  align-content: center;
+}
+
+.card--container {
+  margin: auto;
+  max-width: 50%;
+  height: 60%;
+
+  background-color: #f3eeee;
+  border-radius: 40px;
+  border-top-left-radius: 90px;
+  position: relative;
+
+  display: flex;
+}
+
+.card--container:before {
+  border-top: 70px solid #5f6778;
+  border-right: 70px solid transparent;
+}
+
+.card--container:before,
+.right--container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 0;
+}
+
+.right--container {
+  width: 50%;
+  height: 100%;
+  background-color: #dbe0e9;
+  border-radius: 20px;
+  border-top-left-radius: 95px;
+  position: relative;
+}
+
+.left--container {
+  width: 50%;
+  height: 100%;
+}
+
+.right--container::before {
+  border-top: 75px solid #f3eeee;
+  border-right: 75px solid transparent;
+}
+
+.right--container,
+.left--container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  flex-direction: column;
+  gap: 1.2rem;
+
+  padding-inline: 2.4rem;
+}
