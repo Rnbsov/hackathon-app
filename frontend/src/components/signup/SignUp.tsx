@@ -2,15 +2,15 @@
 
 import React from 'react'
 
-import Card from './Card'
-import styles from './login.module.css'
+import Card from '../login/Card'
+import styles from '../login/login.module.css'
 
 type Props = {}
 
-export default function Login({}: Props) {
+export default function SignUp({}: Props) {
   return (
     <main className={`bg-bgsecondary ${styles['login--container']}`}>
-      <Card isLogin />
+      <Card isLogin={false} />
     </main>
   )
 }

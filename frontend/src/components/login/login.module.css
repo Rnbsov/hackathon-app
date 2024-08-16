@@ -8,19 +8,36 @@
 
 .login--container h1 {
   font-size: 1.8rem;
+  background: linear-gradient(to right, #6d36b0, #ef7fc2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.card--container {
+.card--container,
+.card--container__signup {
   margin: auto;
   max-width: 50%;
   height: 70%;
 
   background-color: #f3eeee;
   border-radius: 40px;
-  border-top-left-radius: 90px;
+
   position: relative;
 
   display: flex;
+}
+
+.card--container {
+  border-top-left-radius: 90px;
+}
+
+.card--container__signup {
+  border-top-right-radius: 90px;
+}
+
+.card--container__signup:after {
+  border-top: 70px solid #181820;
+  border-left: 70px solid transparent;
 }
 
 .card--container:before {
@@ -35,23 +52,52 @@
   top: 0;
   left: 0;
 
-  width: 0;
+  /* width: 0;  */
 }
 
-.left--container {
-  width: 50%;
+.card--container__signup:after,
+.card--container__signup .left--container:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  /* width: 0;  */
+}
+
+.left--container,
+.card--container__signup .left--container {
+  width: 100%;
   height: 100%;
   background-color: #d0d0e4;
   border-radius: 20px;
-  border-top-left-radius: 95px;
+
   position: relative;
   padding-top: 10%;
 }
 
+.left--container {
+  border-top-left-radius: 95px;
+}
+
+.card--container__signup .left--container {
+  border-top-right-radius: 95px;
+}
+
 .right--container {
-  width: 50%;
+  width: 100%;
   height: 100%;
   justify-content: center;
+}
+
+.card--container__signup .left--container::after {
+  border-top: 75px solid #f3eeee;
+  border-left: 75px solid transparent;
+}
+
+.card--container__signup .left--container::before {
+  border-top: none;
+  border-right: none;
 }
 
 .left--container::before {
@@ -84,6 +130,9 @@
   gap: 0.4rem;
   width: 100%;
 }
+.form--field__container label {
+  font-size: var(--login-14px);
+}
 
 .error--message {
   color: rgb(231, 59, 59);
@@ -97,7 +146,7 @@
   outline: none;
 
   padding: 0.4rem;
-  font-size: 0.8rem;
+  font-size: var(--login-14px);
 }
 
 .password--toggle__btn {
@@ -117,20 +166,54 @@
 
 .form--btn.btn-flip,
 .form--btn {
-  background-color: #2a2a38;
+  background: linear-gradient(to right, #9b5de5, #f15bb5);
+
   min-width: 100px;
   /* padding-inline: 0.4rem; */
   height: 40px;
-
-  position: absolute;
-  bottom: 15%;
-  margin: auto;
+  /* 
+  margin: auto; */
 
   border-radius: 12px;
 }
 
+.form--btn,
+.form--btn.btn-flip {
+  position: absolute;
+  bottom: 12%;
+}
+
+.right--container__btn:hover {
+  background: transparent;
+}
+
+.right--container__btn:hover p {
+  color: #6d36b0;
+}
+
+.right--container__btn {
+  background: linear-gradient(to right, #9b5de5, #f15bb5);
+  min-width: 100px;
+  height: 40px;
+  border-radius: 12px;
+}
+
+.right--container {
+  justify-content: center;
+  align-items: center;
+}
+
+.right--container button p {
+  color: #f3eeee;
+  font-size: var(--login-14px);
+}
+
+/* .right--container button:hover {
+  background-color: #fff;
+} */
+
 .form--btn p {
-  font-size: 0.8rem;
+  font-size: var(--login-14px);
 }
 
 .fake--btn svg {
@@ -141,20 +224,28 @@
   top: 0;
   width: 100%;
 }
-.fake--btn rect {
+
+.right--container__btn svg {
+  position: relative;
+}
+
+.fake--btn rect,
+.right--container__btn rect {
   fill: none;
-  stroke: #2a2a38;
+  stroke: url(#gradientStroke); /* Apply gradient to stroke */
   stroke-width: 2;
   stroke-dasharray: 422, 0;
   transition: all 0.35s linear;
 }
 
-.fake--btn:hover {
+.fake--btn:hover,
+.right--container__btn:hover {
   background: rgba(225, 51, 45, 0);
   font-weight: 900;
   letter-spacing: 1px;
 }
-.fake--btn:hover rect {
+.fake--btn:hover rect,
+.right--container__btn:hover rect {
   stroke-width: 5;
   stroke-dasharray: 15, 310;
   stroke-dashoffset: 48;
@@ -247,7 +338,8 @@
   line-height: 40px;
   transition: 0.5s;
   position: relative;
-  background: #2a2a38;
+  background: linear-gradient(to right, #9b5de5, #f15bb5);
+
   content: attr(data-front);
   transform: translateY(0) rotateX(0);
 }

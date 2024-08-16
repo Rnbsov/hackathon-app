@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+:root {
+  --login-8px: 0.6rem;
+  --login-10px: 0.625rem;
+  --login-12px: 0.75rem;
+  --login-14px: 0.875rem;
+  --login-18px: 1.125rem;
 }
+
+/*
 
 @media (prefers-color-scheme: dark) {
   :root {

@@ -7,14 +7,16 @@ import styles from './login.module.css'
 import HidePasswordBtn from '@/../public/icons/password-hide.png'
 import ShowPasswordBtn from '@/../public/icons/password-view.png'
 
-type Props = {}
+type Props = {
+  isLogin: boolean
+}
 
 type Inputs = {
   email: string
   password: string
 }
 
-export default function Form({}: Props) {
+export default function Form({ isLogin }: Props) {
   const {
     register,
     handleSubmit,
@@ -40,7 +42,14 @@ export default function Form({}: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles['form--container']}>
       <div className={styles['form--field__container']}>
-        <label className='text-sm font-semibold'>Email:</label>
+        <label
+          className='font-semibold'
+          style={{
+            color: '#555'
+          }}
+        >
+          Email:
+        </label>
         <input
           {...register('email', {
             required: 'Email is required',
@@ -50,12 +59,20 @@ export default function Form({}: Props) {
             }
           })}
           className={styles['input--container']}
+          placeholder='Enter your email'
         />
         {errors.email && <p className={styles['error--message']}>{errors.email.message}</p>}
       </div>
 
       <div className={`mt-4 ${styles['form--field__container']}`}>
-        <label className='text-sm font-semibold'>Password:</label>
+        <label
+          className='font-semibold'
+          style={{
+            color: '#555'
+          }}
+        >
+          Password:
+        </label>
         <div className={styles['passward--container']}>
           <input
             {...register('password', { required: true })}
@@ -76,23 +93,30 @@ export default function Form({}: Props) {
         {errors.password && <p className={styles['error--message']}>This field is required</p>}
       </div>
 
-      {/* TODO: On clicking this button below the text in the right container should also change with thwe use of context*/}
       <button
         type='button'
         className={`mx-auto ${styles['form--btn']} mt-4 ${showSubmitBtn ? styles['fade-out'] : ''} ${styles['fake--btn']}`}
         onClick={() => setShowSubmitBtn(true)}
       >
         <svg>
+          <defs>
+            <linearGradient id='gradientStroke' x1='0%' y1='0%' x2='100%' y2='0%'>
+              <stop offset='0%' style={{ stopColor: '#9b5de5', stopOpacity: 1 }} />
+              <stop offset='100%' style={{ stopColor: '#f15bb5', stopOpacity: 1 }} />
+            </linearGradient>
+          </defs>
           <rect x='0' y='0' fill='none' width='100%' height='100%' />
         </svg>
-        <p className='text-white font-semibold'>{showSubmitBtn ? 'Actually Dysfunctional' : 'Login'}</p>
+        <p className='text-white font-semibold'>
+          {showSubmitBtn ? 'Actually Dysfunctional' : isLogin ? 'Login' : 'Signup'}
+        </p>
       </button>
       {showSubmitBtn && (
         <button
           type='submit'
           className={`mx-auto ${styles['form--btn']} ${showSubmitBtn ? styles['fade-in'] : ''} mt-4 ${styles['btn-flip']}`}
-          data-back='Login'
-          data-front='Login'
+          data-back={isLogin ? 'Login' : 'Signup'}
+          data-front={isLogin ? 'Login' : 'Signup'}
         >
           {/* <p className='text-sm text-white'>Submit</p> */}
         </button>
