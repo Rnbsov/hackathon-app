@@ -11,7 +11,8 @@ const config = withMT({
     extend: {},
     colors: {
       bgprimary: '#21212b',
-      bgsecondary: '#181820'
+      bgsecondary: '#181820',
+      activegray: '#272732'
     }
   },
   plugins: []
